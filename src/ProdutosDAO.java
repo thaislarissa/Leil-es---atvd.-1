@@ -14,8 +14,8 @@ import javax.swing.JOptionPane;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-
 public class ProdutosDAO {
+    private Connection connection;
     
     Connection conn;
     PreparedStatement prep;
@@ -29,7 +29,20 @@ public class ProdutosDAO {
         
         
     }
-    
+    public void cadastrarProduto(ProdutosDTO produto) {
+        String sql = "INSERT INTO produtos (nome, valor, status) VALUES (?, ?, ?)";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, produto.getNome());
+            statement.setInt(2, produto.getValor());
+            statement.setString(3, produto.getStatus());
+            statement.executeUpdate();
+            System.out.println("Produto cadastrado com sucesso!");
+        } catch (SQLException e) {
+            System.out.println("Erro ao cadastrar produto: " + e.getMessage());
+        }
+    }
+}
     public ArrayList<ProdutosDTO> listarProdutos(){
         
         return listagem;
