@@ -192,7 +192,7 @@ public class cadastroVIEW extends javax.swing.JFrame {
     } else {
         JOptionPane.showMessageDialog(this, "Erro ao cadastrar o produto. Verifique os dados e tente novamente.", "Erro", JOptionPane.ERROR_MESSAGE);
     }
-}
+
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
